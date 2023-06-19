@@ -4,9 +4,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.felipeguimaraes42</groupId>
-  <artifactId>parent</artifactId>
+  <artifactId>arch-bookstore-parent</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>architecture-hortifruti-parent</name>
+  <name>arch-bookstore-parent</name>
   <description>Project responsible for comparing different software architectural patterns in the
     back-end of an e-commerce demo application
   </description>
@@ -20,9 +20,8 @@
   </parent>
   <modules>
     <module>clean</module>
-    <module>hexagonal</module>
     <module>mvc</module>
-    <module>none</module>
+    <module>bbom</module>
   </modules>
 
   <properties>

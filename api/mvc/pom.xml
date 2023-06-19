@@ -3,9 +3,9 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>architecture-hortifruti-mvc</artifactId>
+  <artifactId>mvc-arch-bookstore</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>architecture-hortifruti-mvc</name>
+  <name>mvc-arch-bookstore</name>
   <packaging>jar</packaging>
   <description>Project responsible for comparing different software architectural patterns in the
     back-end of an e-commerce demo application
@@ -13,7 +13,7 @@
 
   <parent>
     <groupId>com.felipeguimaraes42</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>arch-bookstore-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
