@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   border-bottom: 1px solid lightblue;
   padding-bottom: 20px;
+  padding-top: 20px;
 
   div {
     flex: 1;

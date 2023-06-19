@@ -14,7 +14,7 @@ const Item: React.FC<Props> = ({ item, handleAddToCart }) => (
     <img src={item.image} alt={item.title} />
     <div>
       <h3>{item.title}</h3>
-      <h3>{item.author}</h3>
+      <h4>{item.author}</h4>
       <p>{item.synopsis}</p>
       <h3>R$ {item.price.toFixed(2)}</h3>
     </div>

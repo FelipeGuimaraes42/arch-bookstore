@@ -21,7 +21,7 @@ export function ButtonAppBar() {
                     >
                         <HomeIcon />
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 2 }}>
-                            Architecture Hortifruti
+                            Arch Bookstore
                         </Typography>
                     </IconButton>
                     <Button color="inherit" href="/signin">Login</Button>

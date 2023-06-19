@@ -165,7 +165,7 @@ export function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            Architecture Hortifruti
+            Arch Bookstore
           </Typography>
           <Search>
             <SearchIconWrapper>
