@@ -15,16 +15,17 @@ import { Wrapper, StyledButton } from './Home.styles';
 // Types
 export type CartItemType = {
     id: number,
-    name: string,
-    description: string,
-    price: number,
+    title: string,
+    author: string,
+    synopsis: string,
     category: string,
     image: string;
+    price: number,
     amount: number;
 };
 
 const getProducts = async (): Promise<CartItemType[]> =>
-    await (await fetch('http://localhost:8080/hortifruti/')).json();
+    await (await fetch('http://localhost:8080/book/')).json();
 
 export function Home() {
     const [cartOpen, setCartOpen] = useState(false);
