@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-us" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Architecture Hortifruti</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+  <style>
+    .card {
+      display: inline-block;
+      width: 100%;
+      margin: 20px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border: 1px solid #0096FF;
+      border-radius: 20px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    }
+  img {
+      width: auto;
+      max-width: 350px;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 20px;
+  }
+  .item {
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 0.5rem;
+      height: 100%;
+  }
+  .item-button {
+    border-radius: 0 0 20px 20px;
+    width: 100%;
+    color: #0096FF;
+    border-color: #0096FF;
+  }
+  </style>
+</head>
+
+<body>
+<div>
+  <nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand m-2" th:href="@{/}">Architecture Hortifruti</a>
+    <div class="navbar-nav ml-auto" th:if="${!logged}">
+      <div class="d-flex">
+        <form class="form-inline" th:action="@{/signin}">
+          <button class="btn btn-light m-2 my-sm-2" type="submit">SIGN IN</button>
+        </form>
+        <form class="form-inline" th:action="@{/signup}">
+          <button class="btn btn-light m-2 my-sm-2" type="submit">SIGN UP</button>
+        </form>
+      </div>
+    </div>
+    <div class="navbar-nav ml-auto" th:if="${logged}">
+      <div class="d-flex">
+        <form class="form-inline" th:action="@{/cart}">
+          <button class="btn btn-light m-2 my-sm-2" type="submit">MY CART</button>
+        </form>
+        <form class="form-inline" th:action="@{/logout}">
+          <button class="btn btn-danger m-2 my-sm-2" type="submit">LOGOUT</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="cart-box-main">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-12 mb-4" th:each="hortifruti : ${hortifrutiList}">
+        <div class="card">
+          <div class="item-image">
+            <img th:src="@{${hortifruti.image}}" th:alt="${hortifruti.name + ' image'}"/>
+          </div>
+          <div class="item">
+            <strong>
+              <span th:text="${hortifruti.name}"></span>
+            </strong>
+          </div>
+          <div class="item">
+            <span th:text="${hortifruti.description}"></span>
+          </div>
+          <div class="item">
+            <strong>
+              <span
+                  th:text="${'R$'+ #numbers.formatDecimal(hortifruti.price, 1, 2) + '/kg'}"></span>
+            </strong>
+          </div>
+          <form th:action="@{/cart/insert}" method="post">
+            <input type="hidden" name="item_id" th:value="${hortifruti.id}">
+            <div>
+              <button type="submit" name="action" value="insert" title="Insert"
+                      class="item-button">
+                Add To Cart
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

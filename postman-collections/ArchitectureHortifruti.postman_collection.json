@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "a434d115-c017-4735-b871-998eb0bfb927",
+		"name": "ArchitectureHortifruti",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20542389"
+	},
+	"item": [
+		{
+			"name": "hortifruti",
+			"item": [
+				{
+					"name": "home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/hortifruti/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hortifruti",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHortifrutiById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/hortifruti/item?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hortifruti",
+								"item"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/hortifruti/search?query=P",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hortifruti",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "P"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"hortifruti\": {\r\n            \"id\": 1,\r\n            \"name\": \"Apple\",\r\n            \"description\": \"Apple description\",\r\n            \"price\": 8.4,\r\n            \"category\": \"fruit\",\r\n            \"image\": \"https://i.imgur.com/7qD3JKy.jpg\"\r\n        },\r\n        \"quantity\": 5\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/hortifruti/cart",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hortifruti",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"FelipeGuimaraes42\",\r\n    \"password\": \"FelipeGuimaraes42\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/customer/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/customer/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
