@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class HortifrutiCart {
-  private Hortifruti hortifruti;
+public class BookCart {
+  private Book book;
   private Long quantity;
 }

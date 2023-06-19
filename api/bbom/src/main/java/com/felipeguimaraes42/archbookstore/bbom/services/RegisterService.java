@@ -5,11 +5,11 @@ import com.felipeguimaraes42.archbookstore.bbom.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RegisterCustomerService {
+public class RegisterService {
 
   private final CustomerRepository customerRepository;
 
-  public RegisterCustomerService(final CustomerRepository customerRepository) {
+  public RegisterService(final CustomerRepository customerRepository) {
     this.customerRepository = customerRepository;
   }
 

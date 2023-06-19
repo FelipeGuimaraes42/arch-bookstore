@@ -2,7 +2,7 @@ package com.felipeguimaraes42.archbookstore.bbom.controllers;
 
 import com.felipeguimaraes42.archbookstore.bbom.domains.Customer;
 import com.felipeguimaraes42.archbookstore.bbom.services.LoginService;
-import com.felipeguimaraes42.archbookstore.bbom.services.RegisterCustomerService;
+import com.felipeguimaraes42.archbookstore.bbom.services.RegisterService;
 import java.util.Objects;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class CustomerController {
   private final LoginService loginService;
-  private final RegisterCustomerService registerCustomerService;
+  private final RegisterService registerService;
 
   public CustomerController(
-      final LoginService loginService, final RegisterCustomerService registerCustomerService) {
+      final LoginService loginService, final RegisterService registerService) {
     this.loginService = loginService;
-    this.registerCustomerService = registerCustomerService;
+    this.registerService = registerService;
   }
 
   @PostMapping("/login")
@@ -36,6 +36,6 @@ public class CustomerController {
 
   @PostMapping("/register")
   public ResponseEntity<Customer> registerCustomer(@RequestBody final Customer customer) {
-    return new ResponseEntity<>(registerCustomerService.execute(customer), HttpStatus.CREATED);
+    return new ResponseEntity<>(registerService.execute(customer), HttpStatus.CREATED);
   }
 }
