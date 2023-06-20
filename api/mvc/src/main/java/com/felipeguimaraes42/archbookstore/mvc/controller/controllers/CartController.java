@@ -40,7 +40,7 @@ public class CartController {
       mv.addObject("empty", false);
       double totalCartPrice = 0.0;
       for (CartItemDTO item : cart.getCartItems()) {
-        totalCartPrice += item.getHortifruti().getPrice() * item.getQuantity();
+        totalCartPrice += item.getBook().getPrice() * item.getQuantity();
       }
       mv.addObject("totalPrice", totalCartPrice);
 

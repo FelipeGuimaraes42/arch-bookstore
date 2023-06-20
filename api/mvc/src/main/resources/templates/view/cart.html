@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Architecture Hortifruti: Cart</title>
+  <title>Arch Bookstore: Cart</title>
   <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
   <style>
     .cart-box-main {
@@ -25,13 +25,12 @@
       text-align: center;
       vertical-align: middle;
     }
-
   </style>
 </head>
 <body>
 <div>
   <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand m-2" th:href="@{/}">Architecture Hortifruti</a>
+    <a class="navbar-brand m-2" th:href="@{/}">Arch Bookstore</a>
     <div class="navbar-nav ml-auto">
       <div class="d-flex">
         <form class="form-inline" th:action="@{/logout}">
@@ -53,8 +52,8 @@
           <thead>
           <tr class="active">
             <th scope="col">Image</th>
-            <th scope="col">Name</th>
-            <th scope="col">Price/kg</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
             <th scope="col">Quantity</th>
             <th scope="col">Total</th>
             <th scope="col"></th>
@@ -64,21 +63,21 @@
           <tbody>
           <tr th:each="item : ${cart.cartItems}">
             <td class="text-center">
-              <img th:src="@{${item.hortifruti.image}}" th:alt="${item.hortifruti.name + ' image'}"
+              <img th:src="@{${item.book.image}}" th:alt="${item.book.title + ' image'}"
                    width="100"/>
             </td>
-            <td class="text-center" th:text="${item.hortifruti.name}"></td>
+            <td class="text-center" th:text="${item.book.title}"></td>
             <td class="text-center"
-                th:text="${'R$'+ #numbers.formatDecimal(item.hortifruti.price, 1, 2)}"></td>
+                th:text="${'R$'+ #numbers.formatDecimal(item.book.price, 1, 2)}"></td>
             <form th:action="@{/cart/update}" method="post">
-              <input type="hidden" name="item_id" th:value="${item.hortifruti.id}">
+              <input type="hidden" name="item_id" th:value="${item.book.id}">
               <td class="text-center quantity-box">
                 <input type="number" name="quantity" th:value="${item.quantity}" size="4" value="1"
                        min="1" step="1"
                        class="c-input-text qty text">
               </td>
               <td class="text-center total-pr">
-                <p th:text="${'R$' + #numbers.formatDecimal(item.hortifruti.price * item.quantity, 1, 2)}"></p>
+                <p th:text="${'R$' + #numbers.formatDecimal(item.book.price * item.quantity, 1, 2)}"></p>
               </td>
               <td class="text-center">
                 <div class="btn-group" role="group">

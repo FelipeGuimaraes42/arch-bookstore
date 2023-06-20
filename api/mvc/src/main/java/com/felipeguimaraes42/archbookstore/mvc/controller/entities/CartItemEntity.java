@@ -36,7 +36,7 @@ public class CartItemEntity {
 
   @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "item_id", referencedColumnName = "id")
-  private HortifrutiEntity hortifruti;
+  private BookEntity book;
 
   private Integer quantity;
 }

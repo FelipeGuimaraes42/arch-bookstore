@@ -2,7 +2,7 @@
 <html lang="en-us" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <title>Architecture Hortifruti</title>
+  <title>Arch Bookstore</title>
   <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
   <style>
     .card {
@@ -39,7 +39,7 @@
 <body>
 <div>
   <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand m-2" th:href="@{/}">Architecture Hortifruti</a>
+    <a class="navbar-brand m-2" th:href="@{/}">Arch Bookstore</a>
     <div class="navbar-nav ml-auto" th:if="${!logged}">
       <div class="d-flex">
         <form class="form-inline" th:action="@{/signin}">
@@ -66,27 +66,30 @@
 <div class="cart-box-main">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-12 mb-4" th:each="hortifruti : ${hortifrutiList}">
+      <div class="col-lg-4 col-md-4 col-sm-12 mb-4" th:each="book : ${books}">
         <div class="card">
           <div class="item-image">
-            <img th:src="@{${hortifruti.image}}" th:alt="${hortifruti.name + ' image'}"/>
+            <img th:src="@{${book.image}}" th:alt="${book.title + ' image'}"/>
           </div>
           <div class="item">
             <strong>
-              <span th:text="${hortifruti.name}"></span>
+              <span th:text="${book.title}"></span>
             </strong>
           </div>
           <div class="item">
-            <span th:text="${hortifruti.description}"></span>
+            <span th:text="${book.author}"></span>
+          </div>
+          <div class="item">
+            <span th:text="${book.synopsis}"></span>
           </div>
           <div class="item">
             <strong>
               <span
-                  th:text="${'R$'+ #numbers.formatDecimal(hortifruti.price, 1, 2) + '/kg'}"></span>
+                  th:text="${'R$'+ #numbers.formatDecimal(book.price, 1, 2)}"></span>
             </strong>
           </div>
           <form th:action="@{/cart/insert}" method="post">
-            <input type="hidden" name="item_id" th:value="${hortifruti.id}">
+            <input type="hidden" name="item_id" th:value="${book.id}">
             <div>
               <button type="submit" name="action" value="insert" title="Insert"
                       class="item-button">

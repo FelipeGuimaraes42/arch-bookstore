@@ -24,8 +24,8 @@ INSERT INTO book(title, author, synopsis, category, image, price) VALUES('Founda
 INSERT INTO book(title, author, synopsis, category, image, price) VALUES('Neuromancer', 'William Gibson', 'A groundbreaking cyberpunk novel that follows a washed-up computer hacker on a mission to pull off the ultimate heist in a world dominated by technology.', 'Science Fiction', 'https://i.imgur.com/uPVeQ6u.jpg', 14.99);
 INSERT INTO book(title, author, synopsis, category, image, price) VALUES('Ender''s Game', 'Orson Scott Card', 'A thrilling story of a young boy named Ender Wiggin who is recruited to train at a military academy in preparation for an alien invasion.', 'Science Fiction', 'https://i.imgur.com/pPLhmgY.jpg', 13.99);
 INSERT INTO book(title, author, synopsis, category, image, price) VALUES('The Hitchhiker''s Guide to the Galaxy', 'Douglas Adams', 'A humorous science fiction series following the adventures of an ordinary human and his alien friend as they travel through space and unravel the mysteries of the universe.', 'Science Fiction', 'https://i.imgur.com/j7cGOIF.jpg', 14.99);
-INSERT INTO cart(customer_id) VALUES(1)
-INSERT INTO cart_item(cart_id, item_id, quantity) VALUES(1, 1, 2)
-INSERT INTO cart_item(cart_id, item_id, quantity) VALUES(1, 2, 4)
-INSERT INTO cart_item(cart_id, item_id, quantity) VALUES(1, 3, 1)
-INSERT INTO cart_item(cart_id, item_id, quantity) VALUES(1, 4, 5)
+INSERT INTO cart(customer_id) VALUES(1);
+INSERT INTO cart_item(cart_id, item_id, quantity) VALUES(1, 1, 2);
+INSERT INTO cart_item(cart_id, item_id, quantity) VALUES(1, 2, 4);
+INSERT INTO cart_item(cart_id, item_id, quantity) VALUES(1, 3, 1);
+INSERT INTO cart_item(cart_id, item_id, quantity) VALUES(1, 4, 5);

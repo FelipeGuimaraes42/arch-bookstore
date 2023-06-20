@@ -13,6 +13,6 @@ import lombok.Setter;
 @Builder
 public class CartItemDTO {
   private Long id;
-  private HortifrutiDTO hortifruti;
+  private BookDTO book;
   private Integer quantity;
 }

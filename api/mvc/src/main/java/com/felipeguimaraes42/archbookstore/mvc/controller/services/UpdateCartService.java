@@ -35,14 +35,14 @@ public class UpdateCartService {
       cart.getCartItems()
           .forEach(
               cartItem -> {
-                if (cartItem.getHortifruti().getId().equals(itemId)) {
+                if (cartItem.getBook().getId().equals(itemId)) {
                   cartItem.setQuantity(newQuantity);
                 }
               });
     } else {
       Set<CartItemEntity> newCartItems = new HashSet<>();
       for (CartItemEntity cartItem : cart.getCartItems()) {
-        if (cartItem.getHortifruti().getId().equals(itemId)) {
+        if (cartItem.getBook().getId().equals(itemId)) {
           itemRepository.delete(cartItem);
         } else {
           newCartItems.add(cartItem);

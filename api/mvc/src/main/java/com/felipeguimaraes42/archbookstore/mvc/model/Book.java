@@ -11,10 +11,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class Hortifruti {
-  private String name;
-  private String description;
-  private Double price;
+public class Book {
+  private String title;
+  private String author;
+  private String synopsis;
   private String category;
   private String image;
+  private Double price;
 }

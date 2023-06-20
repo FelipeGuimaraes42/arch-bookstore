@@ -12,6 +12,6 @@ import lombok.Setter;
 @Setter
 @Builder
 public class CartItem {
-  private Hortifruti hortifruti;
+  private Book book;
   private Integer quantity;
 }
