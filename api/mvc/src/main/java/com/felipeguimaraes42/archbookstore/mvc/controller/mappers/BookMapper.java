@@ -15,5 +15,5 @@ public interface BookMapper {
 
   List<BookDTO> toBookDTOs(final List<BookEntity> bookEntities);
 
-  BookEntity toHortifrutiEntity(final Book book);
+  BookEntity toBookEntity(final Book book);
 }

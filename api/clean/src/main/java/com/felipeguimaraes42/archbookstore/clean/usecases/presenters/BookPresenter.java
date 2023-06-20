@@ -4,5 +4,5 @@ import com.felipeguimaraes42.archbookstore.clean.usecases.models.book.BookRespon
 import java.util.List;
 
 public interface BookPresenter {
-  List<BookResponseModel> prepareSuccessView(final List<BookResponseModel> hortifruti);
+  List<BookResponseModel> prepareSuccessView(final List<BookResponseModel> books);
 }

@@ -1,4 +1,4 @@
-package com.felipeguimaraes42.archbookstore.clean.adapters.repositories.hortifruti;
+package com.felipeguimaraes42.archbookstore.clean.adapters.repositories.book;
 
 import com.felipeguimaraes42.archbookstore.clean.adapters.mappers.BookDataMapper;
 import com.felipeguimaraes42.archbookstore.clean.usecases.gateways.BookGateway;
