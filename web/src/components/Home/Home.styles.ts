@@ -8,7 +8,20 @@ export const Wrapper = styled.div`
 export const StyledButton = styled(IconButton)`
   position: fixed;
   z-index: 100;
-  right: 20px;
-  top: 20px;
-  color: black;
+  right: 16px;
+  bottom: 20px;
+  color: #FFFFFF;
+  background-color: #0D6EFD;
+  width: 70px;
+  height: 70px;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+
+  .cart-icon {
+    transform: scale(1.5);
+  }
+
+  &:hover {
+    color: #0D6EFD;
+    background-color: #FFFFFF;
+  }
 `;

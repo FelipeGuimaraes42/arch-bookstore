@@ -88,7 +88,7 @@ export function Home() {
                 </Drawer>
                 <StyledButton onClick={() => setCartOpen(true)}>
                     <Badge badgeContent={getTotalItems(cartItems)} color='error'>
-                        <ShoppingCart />
+                        <ShoppingCart className="cart-icon" />
                     </Badge>
                 </StyledButton>
                 <Grid container spacing={3}>
