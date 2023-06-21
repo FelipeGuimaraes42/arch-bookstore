@@ -3,11 +3,13 @@
 
 <head>
   <title>Arch Bookstore</title>
-  <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     .card {
       display: inline-block;
       width: 100%;
+      height: 570px;
       margin: 20px;
       padding: 20px;
       background-color: #f8f9fa;
@@ -21,17 +23,26 @@
         max-height: 250px;
         object-fit: cover;
         border-radius: 20px;
+        margin: 0 auto;
+        display: block;
     }
     .item {
         font-family: Arial, Helvetica, sans-serif;
         padding: 0.5rem;
-        height: 100%;
     }
     .item-button {
       border-radius: 0 0 20px 20px;
-      width: 100%;
+      width: 90%;
       color: #0096FF;
       border-color: #0096FF;
+      position: absolute;
+      bottom: 20px;
+      right: 18px;
+    }
+    .navbar-brand:hover {
+      background-color: #0D6EFD;
+      color: #FFFFFF;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -39,7 +50,7 @@
 <body>
 <div>
   <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand m-2" th:href="@{/}">Arch Bookstore</a>
+    <a class="navbar-brand m-2 p-2" th:href="@{/}">Arch Bookstore</a>
     <div class="navbar-nav ml-auto" th:if="${!logged}">
       <div class="d-flex">
         <form class="form-inline" th:action="@{/signin}">
@@ -82,7 +93,7 @@
           <div class="item">
             <span th:text="${book.synopsis}"></span>
           </div>
-          <div class="item">
+          <div class="item-last">
             <strong>
               <span
                   th:text="${'R$'+ #numbers.formatDecimal(book.price, 1, 2)}"></span>

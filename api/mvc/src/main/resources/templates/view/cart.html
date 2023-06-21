@@ -2,7 +2,8 @@
 <html lang="en-us" xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Arch Bookstore: Cart</title>
-  <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     .cart-box-main {
       margin-top: 50px;
@@ -25,12 +26,18 @@
       text-align: center;
       vertical-align: middle;
     }
+    .navbar-brand:hover {
+      background-color: #0D6EFD;
+      color: #FFFFFF;
+      border-radius: 10px;
+    }
   </style>
 </head>
+
 <body>
 <div>
   <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand m-2" th:href="@{/}">Arch Bookstore</a>
+    <a class="navbar-brand m-2 p-2" th:href="@{/}">Arch Bookstore</a>
     <div class="navbar-nav ml-auto">
       <div class="d-flex">
         <form class="form-inline" th:action="@{/logout}">
