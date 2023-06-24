@@ -13,7 +13,14 @@ public class RegisterService {
     this.customerRepository = customerRepository;
   }
 
-  public Customer execute(final Customer customer) {
-    return customerRepository.save(customer);
+  public Customer execute(final Customer requestCustomer) {
+    Customer customer;
+    try {
+      customer = customerRepository.save(requestCustomer);
+    } catch (RuntimeException ex) {
+      customer = null;
+    }
+
+    return customer;
   }
 }

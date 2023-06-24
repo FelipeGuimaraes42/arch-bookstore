@@ -1,9 +1,10 @@
 package com.felipeguimaraes42.archbookstore.bbom.controllers;
 
+import static java.util.Objects.nonNull;
+
 import com.felipeguimaraes42.archbookstore.bbom.domains.Customer;
 import com.felipeguimaraes42.archbookstore.bbom.services.LoginService;
 import com.felipeguimaraes42.archbookstore.bbom.services.RegisterService;
-import java.util.Objects;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,16 +27,21 @@ public class CustomerController {
   }
 
   @PostMapping("/login")
-  public ResponseEntity<Void> getCustomer(@RequestBody final Customer requestCustomer) {
-    final Customer execute = loginService.execute(requestCustomer);
-    if (Objects.nonNull(execute)) {
-      return new ResponseEntity<>(HttpStatus.OK);
+  public ResponseEntity<Customer> getCustomer(@RequestBody final Customer requestCustomer) {
+    final Customer customer = loginService.execute(requestCustomer);
+    if (nonNull(customer)) {
+      customer.setPassword(null);
+      return new ResponseEntity<>(customer, HttpStatus.OK);
     }
     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
   }
 
   @PostMapping("/register")
-  public ResponseEntity<Customer> registerCustomer(@RequestBody final Customer customer) {
-    return new ResponseEntity<>(registerService.execute(customer), HttpStatus.CREATED);
+  public ResponseEntity<Void> registerCustomer(@RequestBody final Customer requestCustomer) {
+    final Customer customer = registerService.execute(requestCustomer);
+    if (nonNull(customer)) {
+      return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    return new ResponseEntity<>(HttpStatus.CONFLICT);
   }
 }

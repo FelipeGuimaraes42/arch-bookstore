@@ -29,10 +29,11 @@ public class CustomerController {
   }
 
   @PostMapping("/login")
-  public ResponseEntity<Void> getCostumer(@RequestBody final CustomerRequestModel customer) {
-    final CustomerResponseModel execute = customerLoginBoundary.login(customer);
-    if (nonNull(execute)) {
-      return new ResponseEntity<>(HttpStatus.OK);
+  public ResponseEntity<CustomerResponseModel> getCostumer(
+      @RequestBody final CustomerRequestModel customer) {
+    final CustomerResponseModel customerResponseModel = customerLoginBoundary.login(customer);
+    if (nonNull(customerResponseModel)) {
+      return new ResponseEntity<>(customerResponseModel, HttpStatus.OK);
     }
     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
   }
