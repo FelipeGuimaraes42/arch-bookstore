@@ -1,17 +1,25 @@
-import { useState } from 'react';
+import { useState, useContext } from "react";
 import { useQuery } from 'react-query';
-// Components
-import { ButtonAppBar } from '../AppBar/HomeAppBar';
-import Item from '../Item/Item';
-import Cart from '../Cart/Cart'
-
+// Components MUI
 import Drawer from '@mui/material/Drawer';
 import LinearProgress from '@mui/material/LinearProgress';
 import Grid from '@mui/material/Grid';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+// Components
+import Item from '../Item/Item';
+import Cart from '../Cart/Cart'
+// Context
+import { RequireAuth } from '../../contexts/Auth/RequireAuth';
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 // Styles
-import { Wrapper, StyledButton } from './Home.styles';
+import { Wrapper, StyledButton, StyledButtonNav, StyledButtonNavRed, ButtonContainer } from './Home.styles';
+
 // Types
 export type CartItemType = {
     id: number,
@@ -34,6 +42,7 @@ export function Home() {
         'products',
         getProducts
     );
+    const { user, signout } = useContext(AuthContext);
     console.log(data);
 
     const getTotalItems = (items: CartItemType[]) =>
@@ -74,10 +83,33 @@ export function Home() {
 
     return (
         <>
-            {/* {
-                isClientLoggedIn ? <PrimarySearchAppBar /> : <ButtonAppBar />
-            } */}
-            <ButtonAppBar />
+            <Box sx={{ flexGrow: 1 }}>
+                <AppBar position="static">
+                    <Toolbar>
+                        <IconButton
+                            size="large"
+                            edge="start"
+                            color="inherit"
+                            sx={{ mr: 2 }}
+                            href="/"
+                        >
+                            <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 2 }}>
+                                Arch Bookstore
+                            </Typography>
+                        </IconButton>
+                        <ButtonContainer>
+                            {user ? (
+                                <StyledButtonNavRed onClick={signout}>LOGOUT</StyledButtonNavRed>
+                            ) : (
+                                <>
+                                    <StyledButtonNav href="/signin">SIGN IN</StyledButtonNav>
+                                    <StyledButtonNav href="/signup">SIGN UP</StyledButtonNav>
+                                </>
+                            )}
+                        </ButtonContainer>
+                    </Toolbar>
+                </AppBar>
+            </Box>
             <Wrapper>
                 <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
                     <Cart
@@ -86,11 +118,13 @@ export function Home() {
                         removeFromCart={handleRemoveFromCart}
                     />
                 </Drawer>
-                <StyledButton onClick={() => setCartOpen(true)}>
-                    <Badge badgeContent={getTotalItems(cartItems)} color='error'>
-                        <ShoppingCart className="cart-icon" />
-                    </Badge>
-                </StyledButton>
+                <RequireAuth>
+                    <StyledButton onClick={() => setCartOpen(true)}>
+                        <Badge badgeContent={getTotalItems(cartItems)} color='error'>
+                            <ShoppingCart className="cart-icon" />
+                        </Badge>
+                    </StyledButton>
+                </RequireAuth>
                 <Grid container spacing={3}>
                     {data?.map(item => (
                         <Grid item key={item.id} xs={12} sm={4}>

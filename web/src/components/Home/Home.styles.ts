@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 
 export const Wrapper = styled.div`
@@ -23,5 +24,31 @@ export const StyledButton = styled(IconButton)`
   &:hover {
     color: #0D6EFD;
     background-color: #FFFFFF;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+`;
+
+export const StyledButtonNav = styled(Button)`
+  color: black;
+  background-color: #FFFFFF;
+  margin-left: 10px;
+  &:hover {
+    font-weight: bold;
+    background-color: #FFFFFF;
+  }
+`;
+
+export const StyledButtonNavRed = styled(Button)`
+  color: black;
+  background-color: #D22B2B;
+  margin-left: 10px;
+  &:hover {
+    font-weight: bold;
+    background-color: #D2042D;
   }
 `;

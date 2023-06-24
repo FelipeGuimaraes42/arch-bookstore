@@ -1,6 +1,8 @@
 import Button from '@mui/material/Button';
 // Types
 import { CartItemType } from '../Home/Home';
+// Context
+import { RequireAuth } from '../../contexts/Auth/RequireAuth';
 // Styles
 import { Wrapper } from './Item.styles';
 
@@ -19,7 +21,9 @@ const Item: React.FC<Props> = ({ item, handleAddToCart }) => (
         <p>{item.synopsis}</p>
         <h3>R$ {item.price.toFixed(2)}</h3>
       </div>
-      <Button onClick={() => handleAddToCart(item) }>Add to cart</Button>
+      <RequireAuth>
+        <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
+      </RequireAuth>
     </div>
   </Wrapper>
 );

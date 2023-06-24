@@ -6,15 +6,34 @@ import ErrorIcon from '@mui/icons-material/Error';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { ButtonAppBar } from '../AppBar/HomeAppBar'
+
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
 
 const theme = createTheme();
 
 export function NotFound() {
     return (
         <>
-            <ButtonAppBar />
             <ThemeProvider theme={theme}>
+                <Box sx={{ flexGrow: 1 }}>
+                    <AppBar position="static">
+                        <Toolbar>
+                            <IconButton
+                                size="large"
+                                edge="start"
+                                color="inherit"
+                                sx={{ mr: 2 }}
+                                href="/"
+                            >
+                                <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 2 }}>
+                                    Arch Bookstore
+                                </Typography>
+                            </IconButton>
+                        </Toolbar>
+                    </AppBar>
+                </Box>
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
                     <Box
