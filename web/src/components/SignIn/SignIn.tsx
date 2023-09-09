@@ -81,7 +81,7 @@ export const SignIn: React.FC = () => {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign in
+                        Sign In
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{
                         alignItems: 'center'
@@ -90,6 +90,14 @@ export const SignIn: React.FC = () => {
                             label="Username *"
                             value={username}
                             onChange={handleUsernameInput}
+                            margin="normal"
+                            fullWidth
+                        />
+                        <TextField
+                            label="Password *"
+                            type="password"
+                            value={password}
+                            onChange={handlePasswordInput}
                             margin="normal"
                             fullWidth
                         />
@@ -104,14 +112,6 @@ export const SignIn: React.FC = () => {
                                     <></>
                             }
                         </>
-                        <TextField
-                            label="Password *"
-                            type="password"
-                            value={password}
-                            onChange={handlePasswordInput}
-                            margin="normal"
-                            fullWidth
-                        />
                         <Button variant="contained" color="primary" onClick={handleSubmit} fullWidth sx={{ mt: 3, mb: 2 }}>
                             Sign In
                         </Button>
