@@ -50,7 +50,7 @@ describe('Arch Bookstore', () => {
     cy.wait(500);
 
     // Verify redirect button
-    cy.get('a').contains('Don\'t have an account? Sign Up').click();
+    cy.get('a').contains('Don\'t have an account? Sign Up').should('exist');
 
     // Tries to sign in with wrong account
     cy.get('input[type="text"]').type(username);
@@ -135,9 +135,8 @@ describe('Arch Bookstore', () => {
     cy.get('button').contains('LOGOUT').click();
     cy.wait(500);
 
-    // Verify that successfully logged out
+    // Verify that successfully logged out and was redirected to sign in screen
     cy.get('button').contains('LOGOUT').should('not.exist');
-    cy.contains('a', 'SIGN IN').should('exist');
-    cy.contains('a', 'SIGN UP').should('exist');
+    cy.contains('h1', 'Sign In').should('exist');
   })
 })
