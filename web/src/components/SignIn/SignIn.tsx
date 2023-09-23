@@ -91,11 +91,15 @@ export const SignIn: React.FC = () => {
                             value={username}
                             onChange={handleUsernameInput}
                             margin="normal"
+                            id="username"
+                            name="username"
                             fullWidth
                         />
                         <TextField
                             label="Password *"
                             type="password"
+                            name="password"
+                            id="password"
                             value={password}
                             onChange={handlePasswordInput}
                             margin="normal"
@@ -112,7 +116,14 @@ export const SignIn: React.FC = () => {
                                     <></>
                             }
                         </>
-                        <Button variant="contained" color="primary" onClick={handleSubmit} fullWidth sx={{ mt: 3, mb: 2 }}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={handleSubmit}
+                            fullWidth
+                            name="submit"
+                            id="submit"
+                            sx={{ mt: 3, mb: 2 }}>
                             Sign In
                         </Button>
                         <Grid container>
