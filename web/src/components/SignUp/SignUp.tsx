@@ -127,6 +127,8 @@ export function SignUp() {
                                 type="submit"
                                 fullWidth
                                 variant="contained"
+                                name="submit"
+                                id="submit"
                                 sx={{ mt: 3, mb: 2 }}
                             >
                                 Create
